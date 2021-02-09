@@ -62,7 +62,7 @@ function installPipRequirements(){
 }
 
 function runProjen(){
-	yarn projen run
+	yarn projen
 }
 
 function runCdk(){

@@ -11,16 +11,17 @@ function parseInputs(){
 }
 
 function installTypescript(){
-	npm install typescript
+	yarn global add typescript
 }
+
 
 function installAwsCdk(){
 	echo "Install aws-cdk ${INPUT_CDK_VERSION}"
 	if [ "${INPUT_CDK_VERSION}" == "latest" ]; then
 		if [ "${INPUT_DEBUG_LOG}" == "true" ]; then
-			npm install -g aws-cdk
+			yarn global add aws-cdk
 		else
-			npm install -g aws-cdk >/dev/null 2>&1
+			yarn global add aws-cdk >/dev/null 2>&1
 		fi
 
 		if [ "${?}" -ne 0 ]; then
@@ -30,9 +31,9 @@ function installAwsCdk(){
 		fi
 	else
 		if [ "${INPUT_DEBUG_LOG}" == "true" ]; then
-			npm install -g aws-cdk@${INPUT_CDK_VERSION}
+			yarn global add aws-cdk@${INPUT_CDK_VERSION}
 		else
-			npm install -g aws-cdk@${INPUT_CDK_VERSION} >/dev/null 2>&1
+			yarn global add aws-cdk@${INPUT_CDK_VERSION} >/dev/null 2>&1
 		fi
 
 		if [ "${?}" -ne 0 ]; then
@@ -58,6 +59,10 @@ function installPipRequirements(){
 			echo "Successful install requirements.txt"
 		fi
 	fi
+}
+
+function runProjen(){
+	yarn projen run
 }
 
 function runCdk(){
@@ -100,6 +105,7 @@ function main(){
 	installTypescript
 	installAwsCdk
 	installPipRequirements
+	runProjen
 	runCdk ${INPUT_CDK_ARGS}
 }
 

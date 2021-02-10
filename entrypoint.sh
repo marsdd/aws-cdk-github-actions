@@ -62,7 +62,9 @@ function installPipRequirements(){
 }
 
 function runProjen(){
+	yarn 
 	yarn projen
+	cat cdk.json
 }
 
 function installNodeModules(){

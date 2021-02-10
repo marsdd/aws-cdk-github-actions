@@ -65,9 +65,13 @@ function runProjen(){
 	yarn projen
 }
 
+function installNodeModules(){
+	bash lambda-npm.sh	
+}
+
 function runCdk(){
 	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} ${*} \"${INPUT_CDK_STACK}\""
-	output=$(cdk ${INPUT_CDK_SUBCOMMAND} ${*} "${INPUT_CDK_STACK}" 2>&1)
+	output=$(cdk ${INPUT_CDK_SUBCOMMAND} ${*} "${INPUT_CDK_STACK}" || true 2>&1)
 	exitCode=${?}
 	echo exitCode=$exitCode
 	echo ::set-output name=status_code::${exitCode}
@@ -107,6 +111,7 @@ function main(){
 	installAwsCdk
 	installPipRequirements
 	runProjen
+	installNodeModules
 	runCdk ${INPUT_CDK_ARGS}
 }
 

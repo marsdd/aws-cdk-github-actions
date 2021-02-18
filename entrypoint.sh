@@ -62,8 +62,10 @@ function installPipRequirements(){
 }
 
 function runProjen(){
+	echo "Running projen"
 # 	yarn projen
 	npx projen
+	echo "cdk.json Output"
 	cat cdk.json
 }
 

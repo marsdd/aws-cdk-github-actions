@@ -61,6 +61,10 @@ function installPipRequirements(){
 	fi
 }
 
+function setGitHubPermissions(){
+	sudo chmod -R 777 /github
+}
+
 function runProjen(){
 	echo "Running projen"
 	yarn install
@@ -114,6 +118,7 @@ function main(){
 	installTypescript
 	installAwsCdk
 	installPipRequirements
+	setGitHubPermissions
 	runProjen
 	installNodeModules
 	runCdk ${INPUT_CDK_ARGS}

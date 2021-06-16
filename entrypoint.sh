@@ -62,7 +62,7 @@ function installPipRequirements(){
 }
 
 function setGitHubPermissions(){
-	sudo chmod -R 777 /github
+	chmod -R 777 /github
 }
 
 function runProjen(){

@@ -78,8 +78,8 @@ function installNodeModules(){
 }
 
 function runCdk(){
-	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} ${*} \"${INPUT_CDK_STACK}\""
-	output=$(cdk ${INPUT_CDK_SUBCOMMAND} ${*} "${INPUT_CDK_STACK}")
+	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} --all \"${INPUT_CDK_STACK}\""
+	output=$(cdk ${INPUT_CDK_SUBCOMMAND} --all "${INPUT_CDK_STACK}")
 	exitCode=${?}
 	echo exitCode=$exitCode
 	echo ::set-output name=status_code::${exitCode}

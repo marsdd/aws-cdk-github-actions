@@ -80,8 +80,8 @@ function installNodeModules(){
 function runCdk(){
 	#echo "Run cdk ${INPUT_CDK_SUBCOMMAND} --all \"${INPUT_CDK_STACK}\""
 	#output=$(cdk ${INPUT_CDK_SUBCOMMAND} --all "${INPUT_CDK_STACK}")
-	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} --all"
-	output=$(cdk ${INPUT_CDK_SUBCOMMAND} --all)
+	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} --all --require-approval never"
+	output=$(cdk ${INPUT_CDK_SUBCOMMAND} --all --require-approval never)
 	exitCode=${?}
 	echo exitCode=$exitCode
 	echo ::set-output name=status_code::${exitCode}

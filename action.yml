@@ -26,6 +26,9 @@ inputs:
   debug_log:
     description: 'Enable debug-log'
     default: false
+  app_name:
+    description: 'Name of the application ex. dexp'
+    default: 'dexp'
 outputs:
   status_code:
     description: 'Returned status code.'

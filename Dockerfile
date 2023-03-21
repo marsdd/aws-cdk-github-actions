@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/node:16.13.1-alpine3.13
+FROM public.ecr.aws/docker/library/node:18-alpine
 
 RUN apk --update --no-cache add nodejs npm jq curl bash git docker && \
 	yarn global add esbuild && \

@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM 16.13.1-alpine3.13
 
 RUN apk --update --no-cache add nodejs npm jq curl bash git docker && \
 	npm install -g yarn && \

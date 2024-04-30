@@ -84,7 +84,8 @@ function runCdk(){
 	output=$(cdk ${INPUT_CDK_SUBCOMMAND} --all --require-approval never)
 	exitCode=${?}
 	echo exitCode=$exitCode
-	echo ::set-output name=status_code::${exitCode}
+	# echo ::set-output name=status_code::${exitCode}
+ 	echo "status_code=${exitCode}" >> $GITHUB_OUTPUT
 	echo "${output}"
 
 	commentStatus="Failed"
